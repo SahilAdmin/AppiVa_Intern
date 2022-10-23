@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "335137273940",
+    "project_id": "appiva-a213d",
+    "storage_bucket": "appiva-a213d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335137273940:android:417f74c1be4cda404055c1",
+        "android_client_info": {
+          "package_name": "com.sahil_admin.appiva_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "335137273940-vv8nnptrmru0i2ce9julkr65sopc2klv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIpkBRouM7v_KvUaDQBkam2w0WUY3kw5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "335137273940-vv8nnptrmru0i2ce9julkr65sopc2klv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
