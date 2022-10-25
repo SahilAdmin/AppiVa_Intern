@@ -5,24 +5,24 @@ import android.content.IntentSender
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.core.app.ActivityCompat.startIntentSenderForResult
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.sahil_admin.appiva_project.DashboardActivity
-import com.sahil_admin.appiva_project.R
-import com.sahil_admin.appiva_project.SignupActivity
 import com.sahil_admin.appiva_project.Utility.isValidEmail
 import com.sahil_admin.appiva_project.Utility.isValidPassword
 import com.sahil_admin.appiva_project.databinding.ActivityLoginBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class LoginActivity : AppCompatActivity() {
 
@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
     val auth = Firebase.auth
     private lateinit var oneTapClient: SignInClient
     private lateinit var signInRequest: BeginSignInRequest
+    private val userCollectionRef = Firebase.firestore.collection("Users")
     private val REQ_ONE_TAP = 2
     private var showOneTapUI = true
 
@@ -48,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
                     // Your server's client ID, not your Android client ID.
                     .setServerClientId(getString(R.string.default_web_client_id))
                     // Only show accounts previously used to sign in.
-                    .setFilterByAuthorizedAccounts(true)
+                    .setFilterByAuthorizedAccounts(false)
                     .build())
             .build()
     }
@@ -85,8 +86,7 @@ class LoginActivity : AppCompatActivity() {
                                 .addOnCompleteListener(this) { task ->
                                     if (task.isSuccessful) {
                                         // Sign in success, update UI with the signed-in user's information
-                                        startActivity(Intent(this, DashboardActivity::class.java))
-                                        finish()
+                                        checkSignUp()
 
                                     } else {
                                         // If sign in fails, display a message to the user.
@@ -149,8 +149,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    startActivity(Intent(this, DashboardActivity::class.java))
-                    finish()
+                    checkSignUp()
 
                 } else {
                     // If sign in fails, display a message to the user.
@@ -158,5 +157,21 @@ class LoginActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun checkSignUp () = CoroutineScope(Dispatchers.IO).launch {
+        val user = auth.currentUser!!
+        val querySnapshot = userCollectionRef.whereEqualTo("email", user.email).get().await()
+        if(querySnapshot.documents.isEmpty()) {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@LoginActivity, "No user found, please SignUp first", Toast.LENGTH_SHORT).show()
+
+            }
+        } else {
+            withContext(Dispatchers.Main) {
+                startActivity(Intent(this@LoginActivity, DashboardActivity::class.java))
+                finish()
+            }
+        }
     }
 }

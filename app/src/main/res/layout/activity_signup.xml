@@ -9,9 +9,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,193 +18,206 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="145dp">
-
-                <ImageView
-                    android:id="@+id/imageView_topBackground"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitXY"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/top_background" />
-
-                <ImageView
-                    android:id="@+id/imageView_woman1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="250dp"
-                    android:layout_marginLeft="250dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:scaleType="fitEnd"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.496"
-                    app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.87"
-                    app:srcCompat="@drawable/women1" />
-
-                <TextView
-                    android:id="@+id/textView_createAccount"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginEnd="150dp"
-                    android:layout_marginRight="150dp"
-                    android:gravity="center"
-                    android:text="Create Account"
-                    android:textColor="@color/white"
-                    android:textSize="30dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView_topBackground"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView_youremail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Email"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
-                android:textSize="18sp"
+                android:text="Your Email"
                 android:textColor="@color/black"
-                android:textStyle="bold"
-                />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView_wrongEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="*Enter a valid email id"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
-                android:textSize="12sp"
-                android:visibility="gone"
+                android:text="*Enter a valid email id"
                 android:textColor="#f70011"
-                />
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/textView_emailid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/signup_edittext"
+                android:backgroundTint="@color/white"
                 android:ems="10"
                 android:hint="Enter your email"
-                android:background="@drawable/custom_edittext"
-                android:backgroundTint="@color/white"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:padding="8dp"
-                />
+                android:padding="8dp" />
 
             <TextView
                 android:id="@+id/textView_yourPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your Password"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginTop="32dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="Your Password"
+                android:textColor="@color/black"
                 android:textSize="18sp"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView_wrongPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="*Password should be of atleast 10 characters"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
-                android:textSize="12sp"
-                android:visibility="gone"
+                android:text="*Password should be of atleast 10 characters"
                 android:textColor="#f70011"
-                />
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/textView_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/signup_edittext"
+                android:backgroundTint="@color/white"
                 android:ems="10"
                 android:hint="Enter your password"
                 android:inputType="textPassword"
-                android:background="@drawable/custom_edittext"
-                android:backgroundTint="@color/white"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:padding="8dp"
-                />
+                android:padding="8dp" />
 
             <TextView
                 android:id="@+id/textView_ReenterPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Repeat Password"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:layout_marginTop="32dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:text="Repeat Password"
+                android:textColor="@color/black"
                 android:textSize="18sp"
-                />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView_wrongRePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="*Passwords should match"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="8dp"
-                android:textSize="12sp"
-                android:visibility="gone"
+                android:text="*Passwords should match"
                 android:textColor="#f70011"
-                />
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/textView_password_reenter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="32dp"
+                android:background="@drawable/signup_edittext"
+                android:backgroundTint="@color/white"
                 android:ems="10"
                 android:hint="Re Enter your password"
                 android:inputType="textPassword"
-                android:background="@drawable/custom_edittext"
-                android:backgroundTint="@color/white"
-                android:layout_marginTop="8dp"
+                android:padding="8dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:padding="8dp"
-                />
+                android:layout_marginTop="32dp"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/custom_image_circle"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/iv_image"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/custom_avatar" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_camera"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="32dp"
+                    android:background="@drawable/custom_image_circle"
+                    android:backgroundTint="#949cff"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cl_image"
+                    app:layout_constraintStart_toEndOf="@+id/cl_image"
+                    app:layout_constraintTop_toTopOf="@+id/cl_image">
+
+                    <ImageView
+                        android:id="@+id/iv_camera"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/signup_camera_image" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_gallery"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="32dp"
+                    android:background="@drawable/custom_image_circle"
+                    android:backgroundTint="#949cff"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="@id/cl_camera"
+                    app:layout_constraintStart_toEndOf="@+id/cl_camera"
+                    app:layout_constraintTop_toTopOf="@+id/cl_camera">
+
+                    <ImageView
+                        android:id="@+id/iv_gallery"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/signup_gallery_image" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="32dp"
                 android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                >
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/imageView_google"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/google"
-                    />
+                    app:srcCompat="@drawable/signup_googleimage" />
 
                 <!--                <ImageView-->
                 <!--                    android:id="@+id/imageView_facebook"-->
@@ -228,32 +240,30 @@
                 android:id="@+id/button_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Register"
-                android:background="@drawable/custom_button"
-                app:backgroundTint="#949cff"
-                android:textSize="18sp"
-                android:padding="5dp"
-                android:textStyle="bold"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
-                />
+                android:background="@drawable/signup_button"
+                android:padding="5dp"
+                android:text="Register"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:backgroundTint="#949cff" />
 
             <Button
                 android:id="@+id/button_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Log in"
-                android:background="@drawable/custom_button"
-                app:backgroundTint="#949cff"
-                android:textSize="18sp"
-                android:padding="5dp"
-                android:textStyle="bold"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginBottom="32dp"
-                />
+                android:background="@drawable/signup_button"
+                android:padding="5dp"
+                android:text="Log in"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:backgroundTint="#949cff" />
 
         </LinearLayout>
     </ScrollView>
